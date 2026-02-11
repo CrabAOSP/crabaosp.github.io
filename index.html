@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -152,24 +152,22 @@ footer {
     const root = document.documentElement;
     const toggle = document.getElementById("themeToggle");
 
+    // Function to set theme to localStorage and apply to the page
     function setTheme(theme) {
         root.setAttribute("data-theme", theme);
         localStorage.setItem("theme", theme);
     }
 
+    // Function to retrieve the preferred theme from localStorage
     function getPreferredTheme() {
         const stored = localStorage.getItem("theme");
         if (stored) return stored;
 
-        // Respect browser preference for light theme
-        if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-            return "light";
-        }
-
-        // Default to dark
+        // Default to dark if no stored preference
         return "dark";
     }
 
+    // Apply the preferred theme before content is shown to avoid flashing
     setTheme(getPreferredTheme());
 
     toggle.addEventListener("click", () => {
