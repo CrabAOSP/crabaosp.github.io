@@ -41,7 +41,6 @@ body {
     font-family: 'Fira Code', monospace;
     font-size: 0.9rem;
     transition: background 0.80s ease, color 0.80s ease;
-
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -58,10 +57,8 @@ body {
     width: 200px;
     height: auto;
     margin-bottom: 0.25rem;
-
     image-rendering: pixelated;
     image-rendering: crisp-edges;
-
     -webkit-user-drag: none;
     user-drag: none;
 }
@@ -148,31 +145,13 @@ footer {
 </div>
 
 <script>
-(function () {
+(() => {
     const root = document.documentElement;
     const toggle = document.getElementById("themeToggle");
 
-    // Function to set theme to localStorage and apply to the page
-    function setTheme(theme) {
-        root.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
-    }
-
-    // Function to retrieve the preferred theme from localStorage
-    function getPreferredTheme() {
-        const stored = localStorage.getItem("theme");
-        if (stored) return stored;
-
-        // Default to dark if no stored preference
-        return "dark";
-    }
-
-    // Apply the preferred theme before content is shown to avoid flashing
-    setTheme(getPreferredTheme());
-
     toggle.addEventListener("click", () => {
         const current = root.getAttribute("data-theme");
-        setTheme(current === "dark" ? "light" : "dark");
+        root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
     });
 })();
 </script>
