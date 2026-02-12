@@ -14,147 +14,88 @@
 <meta name="twitter:description" content="CrabAOSP is an Android OS built from AOSP. Minimal design, performance-focused">
 <meta name="twitter:image" content="https://CrabAOSP.github.io/logo.png">
 <meta name="description" content="CrabAOSP - AOSP-based Android operating system. In Development.">
-
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-
 <style>
-:root {
-    --bg: #ffffff;
-    --text: #000000;
-    --border: #000000;
+:root{--bg:#fff;--text:#000;--border:#000}
+[data-theme=dark]{--bg:#000;--text:#fff;--border:#fff}
+*{box-sizing:border-box}
+body{
+margin:0;
+background:var(--bg);
+color:var(--text);
+font:0.9rem 'Fira Code',monospace;
+transition:background .8s,color .8s;
+user-select:none;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
 }
-
-[data-theme="dark"] {
-    --bg: #000000;
-    --text: #ffffff;
-    --border: #ffffff;
+img{
+-webkit-user-drag:none;
+user-drag:none;
 }
-
-* {
-    box-sizing: border-box;
+.container{max-width:720px;margin:6vh auto;padding:10px}
+.logo{
+width:200px;
+margin-bottom:.25rem;
+image-rendering:pixelated;
+image-rendering:crisp-edges;
 }
-
-body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
-    transition: background 0.80s ease, color 0.80s ease;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+h1{font-size:1.8rem;margin:0 0 .25rem}
+.dev{
+display:inline-block;
+border:1px solid var(--border);
+padding:3px 6px;
+font-size:.7rem;
+margin-bottom:1rem
 }
-
-.container {
-    max-width: 720px;
-    margin: 6vh auto;
-    padding: 10px;
+button{
+position:fixed;
+top:10px;
+left:10px;
+background:none;
+border:1px solid var(--border);
+color:var(--text);
+padding:4px 8px;
+cursor:pointer;
+font:0.85rem 'Fira Code',monospace
 }
-
-.logo {
-    width: 200px;
-    height: auto;
-    margin-bottom: 0.25rem;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-    -webkit-user-drag: none;
-    user-drag: none;
-}
-
-h1 {
-    font-size: 1.8rem;
-    margin: 0 0 0.25rem 0;
-}
-
-.dev {
-    display: inline-block;
-    border: 1px solid var(--border);
-    padding: 3px 6px;
-    font-size: 0.7rem;
-    margin-bottom: 1rem;
-}
-
-button {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 4px 8px;
-    cursor: pointer;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.85rem;
-}
-
-button:hover {
-    opacity: 0.7;
-}
-
-a {
-    color: var(--text);
-    text-decoration: underline;
-}
-
-p {
-    margin-bottom: 0.75rem;
-}
-
-footer {
-    margin-top: 2rem;
-    font-size: 0.7rem;
-    opacity: 0.7;
-}
+button:hover{opacity:.7}
+a{color:var(--text);text-decoration:underline}
+p{margin-bottom:.75rem}
+footer{margin-top:2rem;font-size:.7rem;opacity:.7}
 </style>
 </head>
-
 <body>
-
 <button id="themeToggle">theme</button>
-
 <div class="container">
-
-    <img src="logo.png" alt="CrabAOSP Logo" class="logo">
-
-    <h1>CrabAOSP</h1>
-    <div class="dev">IN DEVELOPMENT</div>
-
-    <p>
-        CrabAOSP is an Android operating system built from the Android Open Source Project (AOSP).
-    </p>
-
-    <p>
-        It focuses on minimal design, performance, and long-term hardware compatibility.
-    </p>
-
-    <p>
-        Future plans include releasing a fully open-source smartphone hardware design
-        built specifically for CrabAOSP called Cr9.
-    </p>
-
-    <p>
-        <a href="https://github.com/CrabAOSP/">GitHub</a>
-    </p>
-
-    <footer>
-        © 2026 crabamongspies
-    </footer>
-
+<img src="logo.png" alt="CrabAOSP Logo" class="logo">
+<h1>CrabAOSP</h1>
+<div class="dev">IN DEVELOPMENT</div>
+<p>
+CrabAOSP is an Android operating system built from the Android Open Source Project (AOSP).
+</p>
+<p>
+It focuses on minimal design, performance, and long-term hardware compatibility.
+</p>
+<p>
+Compatible with Google apps out of box. "although highly discouraged"
+</p>
+<p>
+Future plans include releasing fully open-source upgradable hardware SOC board
+built specifically for CrabAOSP called the Cr9.
+</p>
+<p>
+<a href="https://github.com/CrabAOSP/">GitHub</a>
+</p>
+<footer>
+© 2026 crabamongspies
+</footer>
 </div>
-
 <script>
-(() => {
-    const root = document.documentElement;
-    const toggle = document.getElementById("themeToggle");
-
-    toggle.addEventListener("click", () => {
-        const current = root.getAttribute("data-theme");
-        root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
-    });
-})();
+const r=document.documentElement;
+document.getElementById("themeToggle").onclick=
+()=>r.dataset.theme=r.dataset.theme==="dark"?"light":"dark";
 </script>
-
 </body>
 </html>
